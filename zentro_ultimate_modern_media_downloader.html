@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zentro - Ultimate Video & Media Downloader</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#070a12',
+                            card: '#0e1626',
+                            cardHover: '#142038',
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            purple: '#7f00ff',
+                            neon: '#00ffcc'
+                        }
+                    },
+                    boxShadow: {
+                        'neon-glow': '0 0 25px -5px rgba(0, 242, 254, 0.4)',
+                        'purple-glow': '0 0 25px -5px rgba(127, 0, 255, 0.4)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="zentro_styles.css">
+</head>
+
+<body class="font-sans antialiased relative">
+
+    <!-- Ambient Glowing Background Bubbles -->
+    <div class="glow-bg w-[500px] h-[500px] bg-cyan-500/15 -top-20 -left-20"></div>
+    <div class="glow-bg w-[600px] h-[600px] bg-purple-600/15 top-[30%] -right-20"></div>
+    <div class="glow-bg w-[500px] h-[500px] bg-blue-600/15 bottom-20 left-1/3"></div>
+
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div
+                    class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center shadow-neon-glow group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bolt text-2xl text-slate-950"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black tracking-wider text-white">ZENTRO<span
+                            class="text-cyan-400">.</span></span>
+                    <span class="text-[10px] text-cyan-400 tracking-widest font-mono uppercase -mt-1">Media Downloader
+                        Pro</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#downloader" class="hover:text-cyan-400 transition-colors flex items-center gap-2"><i
+                        class="fa-solid fa-download text-xs text-cyan-400"></i> Downloader</a>
+                <a href="#platforms" class="hover:text-cyan-400 transition-colors">Supported Sites</a>
+                <a href="#features" class="hover:text-cyan-400 transition-colors">Features</a>
+                <a href="#how-it-works" class="hover:text-cyan-400 transition-colors">How It Works</a>
+                <a href="#apk" class="hover:text-cyan-400 transition-colors">Mobile App</a>
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="hidden sm:flex items-center gap-4">
+                <button onclick="scrollToDownloader()"
+                    class="px-5 py-2.5 rounded-xl btn-gradient text-slate-950 font-bold text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-circle-down text-base"></i> Get Started Free
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass-panel border-t border-white/10 px-6 py-4 space-y-3">
+            <a href="#downloader" class="block text-gray-300 hover:text-cyan-400 font-medium">Downloader</a>
+            <a href="#platforms" class="block text-gray-300 hover:text-cyan-400 font-medium">Supported Sites</a>
+            <a href="#features" class="block text-gray-300 hover:text-cyan-400 font-medium">Features</a>
+            <a href="#how-it-works" class="block text-gray-300 hover:text-cyan-400 font-medium">How It Works</a>
+            <a href="#apk" class="block text-gray-300 hover:text-cyan-400 font-medium">APK Download</a>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <section id="downloader" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-4xl mx-auto space-y-6">
+
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-semibold tracking-wide">
+                    <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    <span>Zentro v4.8 Engine Live - 10x Faster Speeds</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
+                    Download Videos & Music at <br>
+                    <span class="text-gradient">Lightning Fast Speed</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    The ultimate video downloader for YouTube, TikTok (No Watermark), Instagram Reels, Facebook,
+                    Twitter, and over 1,000+ streaming sites.
+                </p>
+
+                <!-- Interactive URL Input Downloader Box -->
+                <div class="mt-8 max-w-3xl mx-auto">
+                    <div
+                        class="p-2 sm:p-3 rounded-2xl glass-panel border-2 border-cyan-500/40 shadow-neon-glow flex flex-col sm:flex-row items-center gap-3">
+                        <div class="flex items-center w-full px-3 py-2 text-gray-400">
+                            <i class="fa-solid fa-link text-xl text-cyan-400 mr-3"></i>
+                            <input type="text" id="videoUrlInput"
+                                placeholder="Paste Video or Audio URL here (e.g. YouTube, TikTok, IG...)"
+                                class="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none text-base sm:text-lg">
+                            <button type="button" onclick="clearInput()" class="text-gray-500 hover:text-gray-300 px-2">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                        <button onclick="analyzeUrl()" id="fetchBtn"
+                            class="w-full sm:w-auto px-8 py-4 rounded-xl btn-gradient text-slate-950 font-extrabold text-base flex items-center justify-center gap-2 whitespace-nowrap shadow-lg">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span>Fetch Media</span>
+                        </button>
+                    </div>
+
+                    <!-- Quick Sample Buttons for Fast Testing -->
+                    <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
+                        <span class="text-gray-500 font-medium">Try Demo Link:</span>
+                        <button onclick="fillSample('https://www.youtube.com/watch?v=4K-Cyberpunk-Demo')"
+                            class="px-3 py-1 rounded-lg bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 transition-colors">
+                            <i class="fa-brands fa-youtube text-red-500 mr-1"></i> 4K Cyberpunk Reel
+                        </button>
+                        <button onclick="fillSample('https://www.tiktok.com/@zentro/video/739182310')"
+                            class="px-3 py-1 rounded-lg bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 transition-colors">
+                            <i class="fa-brands fa-tiktok text-cyan-400 mr-1"></i> TikTok Viral
+                        </button>
+                        <button onclick="fillSample('https://www.instagram.com/reel/Cw9182310/')"
+                            class="px-3 py-1 rounded-lg bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 transition-colors">
+                            <i class="fa-brands fa-instagram text-pink-500 mr-1"></i> IG Reel HQ
+                        </button>
+                    </div>
+                </div>
+
+                <div id="mediaResult"
+                    class="hidden mt-10 max-w-3xl mx-auto glass-panel p-6 sm:p-8 rounded-3xl border border-cyan-500/30 text-left transition-all animate-fadeIn">
+                    <div class="flex flex-col sm:flex-row gap-6 items-start">
+                        <!-- Thumbnail Preview -->
+                        <div
+                            class="relative group w-full sm:w-56 h-36 sm:h-36 rounded-2xl overflow-hidden bg-slate-900 flex-shrink-0 border border-white/10">
+                            <img id="resThumbnail"
+                                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80"
+                                alt="Video Thumbnail" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <span
+                                    class="w-12 h-12 rounded-full bg-cyan-400/90 text-slate-950 flex items-center justify-center text-xl pl-1 shadow-lg">
+                                    <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                            <span id="resDuration"
+                                class="absolute bottom-2 right-2 bg-black/80 text-cyan-300 text-xs px-2 py-0.5 rounded font-mono">03:45</span>
+                        </div>
+
+                        <!-- Video Info -->
+                        <div class="flex-1 space-y-2 w-full">
+                            <div class="flex items-center justify-between">
+                                <span id="resPlatform"
+                                    class="px-2.5 py-1 rounded-md text-xs font-semibold bg-red-500/20 text-red-400 border border-red-500/30">YouTube
+                                    HD</span>
+                                <span class="text-xs text-gray-400"><i
+                                        class="fa-solid fa-shield-halved text-emerald-400"></i> Verified Safe</span>
+                            </div>
+                            <h3 id="resTitle" class="text-lg font-bold text-white line-clamp-2 leading-snug">Neon
+                                Synthwave Cityscape 4K HDR Unlimited Speed Demonstration</h3>
+                            <p class="text-xs text-gray-400">Source: <span id="resAuthor"
+                                    class="text-gray-300 font-medium">CyberAesthetics Studio</span> • 2.4M Views</p>
+                        </div>
+                    </div>
+
+                    <!-- Quality Tabs & Format Selection -->
+                    <div class="mt-6 border-t border-white/10 pt-6">
+                        <div class="flex space-x-4 border-b border-white/10 pb-3 mb-4">
+                            <button id="tabVideo" onclick="switchFormatTab('video')"
+                                class="text-cyan-400 font-bold text-sm border-b-2 border-cyan-400 pb-1 flex items-center gap-2">
+                                <i class="fa-solid fa-video"></i> Video Formats (MP4)
+                            </button>
+                            <button id="tabAudio" onclick="switchFormatTab('audio')"
+                                class="text-gray-400 font-bold text-sm hover:text-white pb-1 flex items-center gap-2">
+                                <i class="fa-solid fa-music"></i> Audio Only (MP3)
+                            </button>
+                        </div>
+
+                        <!-- Video Download Options list -->
+                        <div id="videoOptions" class="space-y-3">
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-bold rounded">4K
+                                        2160p</span>
+                                    <span class="text-sm font-medium text-white">Ultra HD (60fps)</span>
+                                    <span class="text-xs text-gray-400">~245 MB</span>
+                                </div>
+                                <button onclick="simulateDownload('4K Ultra HD', '245 MB')"
+                                    class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </button>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs font-bold rounded">1080p</span>
+                                    <span class="text-sm font-medium text-white">Full HD (Standard)</span>
+                                    <span class="text-xs text-gray-400">~78 MB</span>
+                                </div>
+                                <button onclick="simulateDownload('1080p Full HD', '78 MB')"
+                                    class="px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-400 text-white font-bold text-xs flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </button>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs font-bold rounded">720p</span>
+                                    <span class="text-sm font-medium text-white">HD Fast Mobile</span>
+                                    <span class="text-xs text-gray-400">~32 MB</span>
+                                </div>
+                                <button onclick="simulateDownload('720p HD Mobile', '32 MB')"
+                                    class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Audio Download Options list (hidden by default) -->
+                        <div id="audioOptions" class="hidden space-y-3">
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="px-2 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-bold rounded">MP3
+                                        320kbps</span>
+                                    <span class="text-sm font-medium text-white">Extreme Audio Quality</span>
+                                    <span class="text-xs text-gray-400">~9.2 MB</span>
+                                </div>
+                                <button onclick="simulateDownload('MP3 320kbps Audio', '9.2 MB')"
+                                    class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Download MP3
+                                </button>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs font-bold rounded">M4A
+                                        128kbps</span>
+                                    <span class="text-sm font-medium text-white">Compact Audio</span>
+                                    <span class="text-xs text-gray-400">~4.1 MB</span>
+                                </div>
+                                <button onclick="simulateDownload('M4A Audio Track', '4.1 MB')"
+                                    class="px-4 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold text-xs flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Download M4A
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar Simulation Container -->
+                    <div id="downloadProgressContainer"
+                        class="hidden mt-6 bg-slate-900/80 p-4 rounded-xl border border-cyan-500/30">
+                        <div class="flex justify-between items-center text-xs mb-2 gap-3">
+                            <span id="downloadStatusText" class="text-cyan-400 font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-spinner animate-spin"></i> Converting & Downloading...
+                            </span>
+                            <div class="flex items-center gap-3">
+                                <span id="downloadTimeText" class="text-gray-300 font-mono">Time: 00:00</span>
+                                <span id="downloadPercentage" class="text-white font-mono font-bold">0%</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5 overflow-hidden">
+                            <div id="progressBar"
+                                class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2.5 rounded-full transition-all duration-200"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="platforms" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Supported Platforms</h2>
+                <p class="text-gray-400 mt-3">Download high-definition video and audio from all popular social networks
+                    seamlessly.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer"
+                    onclick="quickSelectPlatform('YouTube')">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 flex items-center justify-center text-2xl">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">YouTube</h4>
+                        <p class="text-xs text-gray-400">4K, Shorts, Playlists</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer"
+                    onclick="quickSelectPlatform('TikTok')">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">TikTok</h4>
+                        <p class="text-xs text-gray-400">No Watermark</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer"
+                    onclick="quickSelectPlatform('Instagram')">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-400 flex items-center justify-center text-2xl">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Instagram</h4>
+                        <p class="text-xs text-gray-400">Reels, Stories, IGTV</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer"
+                    onclick="quickSelectPlatform('Facebook')">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-600/20 text-blue-400 flex items-center justify-center text-2xl">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Facebook</h4>
+                        <p class="text-xs text-gray-400">Private & Public Video</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer"
+                    onclick="quickSelectPlatform('Twitter')">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center text-2xl">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">X / Twitter</h4>
+                        <p class="text-xs text-gray-400">HD Clips & GIF</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer"
+                    onclick="quickSelectPlatform('SoundCloud')">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center text-2xl">
+                        <i class="fa-brands fa-soundcloud"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">SoundCloud</h4>
+                        <p class="text-xs text-gray-400">320kbps MP3 Audio</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer"
+                    onclick="quickSelectPlatform('Vimeo')">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-400/10 border border-blue-400/20 text-blue-300 flex items-center justify-center text-2xl">
+                        <i class="fa-brands fa-vimeo-v"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Vimeo</h4>
+                        <p class="text-xs text-gray-400">Full HD & 4K Streams</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl flex items-center gap-4 cursor-pointer"
+                    onclick="quickSelectPlatform('WhatsApp')">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">WhatsApp</h4>
+                        <p class="text-xs text-gray-400">Status Saver</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="how-it-works" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">How To Download Media in 3 Easy Steps</h2>
+                <p class="text-gray-400 mt-3">Simple, fast, and no registration required.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div
+                    class="glass-panel p-8 rounded-3xl relative flex flex-col items-center text-center group hover:border-cyan-500/50 transition-all">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 flex items-center justify-center text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Copy Video Link</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Open YouTube, TikTok, or Instagram and copy the URL link of the video or audio you wish to save.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-panel p-8 rounded-3xl relative flex flex-col items-center text-center group hover:border-cyan-500/50 transition-all">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-blue-500/20 border border-blue-400/30 text-blue-300 flex items-center justify-center text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Paste in Zentro</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Paste the link into Zentro's input box above and click the "Fetch Media" button.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-panel p-8 rounded-3xl relative flex flex-col items-center text-center group hover:border-cyan-500/50 transition-all">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-purple-500/20 border border-purple-400/30 text-purple-300 flex items-center justify-center text-2xl font-black mb-6 group-hover:scale-110 transition-transform">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Choose & Download</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Select your preferred video resolution (1080p, 4K) or MP3 format and click download instantly.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="features" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest font-bold">Why Choose
+                    Zentro</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Built for Speed, Quality & Safety</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cyan-400/10 text-cyan-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Ultra Fast Engine</h3>
+                    <p class="text-gray-400 text-sm">Powered by multi-threaded cloud servers to convert and download
+                        media at full bandwidth speed.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-purple-400/10 text-purple-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">No TikTok Watermark</h3>
+                    <p class="text-gray-400 text-sm">Automatically strips logo watermarks from TikTok videos for clean,
+                        crisp offline playback.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-400/10 text-blue-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">MP3 High-Bitrate Extractor</h3>
+                    <p class="text-gray-400 text-sm">Convert any video clip into crystal clear 320kbps MP3 audio tracks
+                        with high audio fidelity.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-emerald-400/10 text-emerald-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">100% Safe & No Malware</h3>
+                    <p class="text-gray-400 text-sm">Zero annoying popup ads, virus-free downloads, and completely
+                        secure encryption protocol.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-yellow-400/10 text-yellow-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-tv"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">4K & 60fps Support</h3>
+                    <p class="text-gray-400 text-sm">Preserve ultra high definition visual crispness with original frame
+                        rates intact.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-pink-400/10 text-pink-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Cross-Platform Sync</h3>
+                    <p class="text-gray-400 text-sm">Works effortlessly across Windows, macOS, Android, iOS, and all
+                        modern mobile web browsers.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="apk" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div
+                class="glass-panel p-8 sm:p-12 rounded-3xl border border-cyan-500/30 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
+
+                <div class="space-y-6 max-w-2xl">
+                    <span
+                        class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-bold uppercase tracking-wider">Android
+                        & Mobile Companion</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">Get the Zentro Mobile App</h2>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Experience background downloading, batch batching, built-in HD media player, and smart link
+                        detection with the official Zentro APK for Android.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="simulateApkDownload()"
+                            class="px-8 py-4 rounded-xl btn-gradient text-slate-950 font-black text-base flex items-center gap-3 shadow-lg">
+                            <i class="fa-brands fa-android text-2xl"></i>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase font-bold tracking-wider opacity-80">Download Free
+                                </div>
+                                <div class="text-sm font-extrabold leading-none">Zentro APK (v4.8)</div>
+                            </div>
+                        </button>
+
+                        <button onclick="showToast('Web Extension installation requested!')"
+                            class="px-8 py-4 rounded-xl glass-card text-white font-bold text-base flex items-center gap-3 hover:border-cyan-400">
+                            <i class="fa-brands fa-chrome text-2xl text-cyan-400"></i>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase font-bold text-gray-400">Browser Addon</div>
+                                <div class="text-sm font-extrabold leading-none">Chrome Extension</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- App Mockup Visual -->
+                <div class="relative w-full max-w-xs sm:max-w-sm flex justify-center">
+                    <div
+                        class="w-64 h-[420px] bg-slate-950 rounded-[40px] border-4 border-slate-700 p-3 shadow-2xl relative overflow-hidden">
+                        <!-- Top Notch -->
+                        <div class="w-28 h-4 bg-slate-800 rounded-b-xl mx-auto mb-3"></div>
+                        <!-- Inner Screen Content -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center text-xs text-white px-2">
+                                <span class="font-bold text-cyan-400">Zentro Mobile</span>
+                                <i class="fa-solid fa-wifi text-xs"></i>
+                            </div>
+                            <div class="bg-cyan-500/10 border border-cyan-500/30 p-2.5 rounded-xl text-center">
+                                <span class="text-[10px] text-cyan-300">Ready to download</span>
+                                <div class="text-xs font-bold text-white mt-1">Paste Link Detected!</div>
+                            </div>
+                            <div class="space-y-2">
+                                <div
+                                    class="bg-slate-900 p-2 rounded-lg flex items-center justify-between text-xs text-gray-300">
+                                    <span><i class="fa-brands fa-youtube text-red-500 mr-1"></i> Cyberpunk.mp4</span>
+                                    <span class="text-cyan-400 font-mono">100%</span>
+                                </div>
+                                <div
+                                    class="bg-slate-900 p-2 rounded-lg flex items-center justify-between text-xs text-gray-300">
+                                    <span><i class="fa-brands fa-tiktok text-cyan-400 mr-1"></i> Dance_Reel.mp4</span>
+                                    <span class="text-blue-400 font-mono">72%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 space-y-3 pointer-events-none"></div>
+
+    <footer class="border-t border-white/10 glass-panel mt-20 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-cyan-400 flex items-center justify-center text-slate-950 font-black">
+                    Z
+                </div>
+                <span class="text-lg font-bold text-white">Zentro Media Downloader</span>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
+                <a href="#" class="hover:text-cyan-400">Privacy Policy</a>
+                <a href="#" class="hover:text-cyan-400">Terms of Service</a>
+                <a href="#" class="hover:text-cyan-400">Supported Sites</a>
+                <a href="#" class="hover:text-cyan-400">Contact Support</a>
+            </div>
+
+            <div class="text-xs text-gray-500 text-center md:text-right">
+                © 2026 Zentro. All rights reserved. <br>For personal media archival purposes.
+            </div>
+        </div>
+    </footer>
+
+    <script src="zentro_script.js"></script>
+</body>
+
+</html>
